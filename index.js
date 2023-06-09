@@ -40,6 +40,12 @@ async function run() {
         const result = await instructorCollection.find().toArray();
         res.send(result);
       })
+      app.delete('/enrolled/:id', async (req, res) => {
+        const id = req.params.id;
+        const query = { _id: new ObjectId(id) };
+        const result = await enrolledCollection.deleteOne(query);
+        res.send(result);
+      })
 
       app.post('/enrolled', async (req, res) => {
         const item = req.body;
