@@ -25,6 +25,7 @@ async function run() {
   try {
     const classCollection = client.db("singerella").collection("classes");
     const instructorCollection = client.db("singerella").collection("instructors");
+    const enrolledCollection = client.db("singerella").collection("enrolled");
 
     // Connect the client to the server	(optional starting in v4.7)
     // await client.connect();
@@ -37,6 +38,13 @@ async function run() {
 // get instructor data
       app.get('/instructors', async (req, res) => {
         const result = await instructorCollection.find().toArray();
+        res.send(result);
+      })
+
+      app.post('/enrolled', async (req, res) => {
+        const item = req.body;
+        console.log(item);
+        const result = await enrolledCollection.insertOne(item);
         res.send(result);
       })
     // Send a ping to confirm a successful connection
