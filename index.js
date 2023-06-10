@@ -98,10 +98,12 @@ async function run() {
    
       app.delete('/enrolled/:_id', async (req, res) => {
         const id = req.params._id;
+        console.log(id);
         const query = { _id: new ObjectId(id) };
         const result = await enrolledCollection.deleteOne(query);
-        res.send(result);
         console.log(result)
+        res.send(result);
+        
       })
 
       app.post('/enrolled', async (req, res) => {
