@@ -31,7 +31,7 @@ async function run() {
     const usersCollection = client.db("singerella").collection("users");
 
     
-
+//post users
       app.post('/users', async (req, res) => {
         console.log('Received POST request at /users');
   console.log('Request body:', req.body);
@@ -49,7 +49,7 @@ async function run() {
         res.send(result);
       });
 
-      // security layer: verifyJWT
+   
     
     
     app.get('/users', async (req, res) => {
