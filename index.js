@@ -51,7 +51,6 @@ async function run() {
 
       // security layer: verifyJWT
     // email same
-    // check admin
     
     app.get('/users', async (req, res) => {
         const result = await usersCollection.find().toArray();
